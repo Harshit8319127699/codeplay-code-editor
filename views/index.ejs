@@ -1,0 +1,71 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../stylesheets/style.css">
+  <title>Document</title>
+</head>
+<body>
+  <div id="main">
+<div id="left">
+<div id="head">
+  <h2>Welcome to code play</h2>  
+</div>
+<div id="form">
+  <form action="/createfile" >
+<input type="text" name="filename" id="">
+<input type="submit">
+  </form>
+</div>
+<div id="head" style="margin-top: 2vmin
+;">
+  <h3>All files display here</h3>
+</div>
+<div id="files">
+  <div id="container">
+    <%if(file.length>0){%>
+<%file.forEach(function(elem){%>
+
+  <div id="filename">
+    <p><%=elem%></p>
+    <div id="a">
+      <button><a href="/delete/<%=elem%>">delete</a></button>
+    <button><a href="/update/<%=elem%>">open</a></button>    
+    </div>
+      </div>
+  <%})%>
+
+
+
+
+  
+      <%}else{%>
+        <h5>No files present</h5>
+      <%}%>
+      
+  </div>
+
+</div>
+
+</div>
+<div id="right">
+<%if(handle===false){%>
+  <div id="div">
+    <h2>Your file content will appear</h2>
+
+  </div>
+  <%}else{%>
+    <h3><%=filename%></h3>
+    <form action="/update/<%=filename%>" method="post">
+<textarea name="updateddata" aria-valuetext= id="" cols="85" rows="35"><%=data%></textarea>
+<input type="submit">
+    </form>
+    
+  <%}%> 
+
+
+</div>
+  </div>
+</body>
+</html>
